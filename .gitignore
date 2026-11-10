@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MIND datasets
+data/
+MINDsmall_train/
+MINDsmall_dev/
+MINDlarge_train/
+MINDlarge_dev/
+*.tsv
+*.vec
+
+# Trained models and large binary artifacts
+*.joblib
+*.pkl
+*.pickle
+*.onnx
+*.pt
+*.pth
+*.bin
+
+# Generated benchmark artifacts
+artifacts/**/model.joblib
+artifacts/benchmark-smoke/
+artifacts/mind-5k/
+artifacts/mind-10k/
+
+# Logs and runtime files
+*.log
+*.pid
+logs/
+tmp/
+temp/
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Build output
+build/
+dist/
+*.egg-info/
+
+# Node or frontend caches
+node_modules/
+npm-debug.log*

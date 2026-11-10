@@ -1,0 +1,21 @@
+{
+  "model": "hybrid-tfidf-svd-logistic-ranker",
+  "dataset": "synthetic-demo",
+  "warning": "Synthetic smoke-test metrics are not evidence of real-world accuracy.",
+  "split": "latest 25% of impressions per user",
+  "train_rows": 8320,
+  "test_rows": 3200,
+  "metrics": {
+    "impressions": 400,
+    "auc": 0.7692857142857145,
+    "mrr": 0.6014315476190477,
+    "ndcg_at_5": 0.6599800752262484,
+    "ndcg_at_10": 0.6985261379417327,
+    "recall_at_10": 1.0,
+    "catalog_coverage_at_10": 1.0
+  },
+  "responsible_use": {
+    "allowed": "aggregate issue discovery and evidence review",
+    "prohibited": "protected-trait inference or individual political persuasion"
+  }
+}

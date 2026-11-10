@@ -1,0 +1,127 @@
+{
+  "model": "hybrid-tfidf-sparse-svd-logistic-ranker",
+  "dataset": "MIND",
+  "protocol": "train on MIND train and evaluate on MIND dev impressions",
+  "train_impressions": 156965,
+  "dev_impressions": 73152,
+  "train_rows": 5843444,
+  "dev_rows": 2740998,
+  "models": {
+    "hybrid": {
+      "impressions": 73152,
+      "auc": 0.5964169289973605,
+      "mrr": 0.30795202508276204,
+      "ndcg_at_5": 0.31970001569888257,
+      "ndcg_at_10": 0.3802127431790088,
+      "recall_at_10": 0.6005912625153158,
+      "catalog_coverage_at_10": 0.48388899236356864
+    },
+    "content": {
+      "impressions": 73152,
+      "auc": 0.5380244681582681,
+      "mrr": 0.29647069787605623,
+      "ndcg_at_5": 0.29966443506649754,
+      "ndcg_at_10": 0.36401301967761207,
+      "recall_at_10": 0.5718377602476235,
+      "catalog_coverage_at_10": 0.6343825665859564
+    },
+    "collaborative": {
+      "impressions": 73152,
+      "auc": 0.5332330676680554,
+      "mrr": 0.27005837918876074,
+      "ndcg_at_5": 0.27509535651069866,
+      "ndcg_at_10": 0.3365513564857432,
+      "recall_at_10": 0.5476345302704233,
+      "catalog_coverage_at_10": 0.4742037623393556
+    },
+    "category_affinity": {
+      "impressions": 73152,
+      "auc": 0.597498985950529,
+      "mrr": 0.3080000412551521,
+      "ndcg_at_5": 0.3212927286623603,
+      "ndcg_at_10": 0.3810757850099304,
+      "recall_at_10": 0.604007281161737,
+      "catalog_coverage_at_10": 0.6632520022350531
+    },
+    "popularity": {
+      "impressions": 73152,
+      "auc": 0.531751528369352,
+      "mrr": 0.2670658352605489,
+      "ndcg_at_5": 0.27077852149079024,
+      "ndcg_at_10": 0.3337768680380282,
+      "recall_at_10": 0.5482893454441231,
+      "catalog_coverage_at_10": 0.3745576457440864
+    }
+  },
+  "feature_coefficients": {
+    "content_similarity": 0.19944552793689266,
+    "collaborative_similarity": 0.1971327257333502,
+    "category_affinity": 0.25653059947219986,
+    "popularity": 0.5610945919627681,
+    "history_size": -0.005430281964473739
+  },
+  "train_calibrated_learned_ranker_weight": 0.8500000000000001,
+  "hybrid_vs_baselines_ndcg_at_10": {
+    "content": 0.04450314309016758,
+    "collaborative": 0.1297317210341275,
+    "category_affinity": -0.002264751172523525,
+    "popularity": 0.13912250844084872
+  },
+  "hybrid_history_cohorts": {
+    "cold_0": {
+      "impressions": 2214,
+      "auc": 0.5294070156554334,
+      "mrr": 0.273165202343943,
+      "ndcg_at_5": 0.2797231820441733,
+      "ndcg_at_10": 0.34080951660764147,
+      "recall_at_10": 0.5581732768385884,
+      "catalog_coverage_at_10": 0.28596568411790585
+    },
+    "sparse_1_5": {
+      "impressions": 10768,
+      "auc": 0.5870733921758821,
+      "mrr": 0.33591928784824515,
+      "ndcg_at_5": 0.35172903809849576,
+      "ndcg_at_10": 0.41034981916869095,
+      "recall_at_10": 0.6609654708837472,
+      "catalog_coverage_at_10": 0.44379391100702575
+    },
+    "established_6_plus": {
+      "impressions": 60170,
+      "auc": 0.6005547244541115,
+      "mrr": 0.30422702159406373,
+      "ndcg_at_5": 0.3154390915923924,
+      "ndcg_at_10": 0.3762692947723628,
+      "recall_at_10": 0.5913475188652743,
+      "catalog_coverage_at_10": 0.4664750957854406
+    }
+  },
+  "strongest_baseline": "category_affinity",
+  "paired_bootstrap": {
+    "metric": "ndcg_at_10",
+    "samples": 2000,
+    "relative_improvement": -0.002264751172523525,
+    "ci_95_low": -0.00789032789209711,
+    "ci_95_high": 0.003639030198884584
+  },
+  "latency": {
+    "scope": "end-to-end scoring of candidates in one observed impression",
+    "warm_user": {
+      "requests": 200,
+      "p50_ms": 2.137583476724103,
+      "p95_ms": 6.7468163557350636,
+      "mean_candidates": 33.8
+    },
+    "cold_user": {
+      "requests": 200,
+      "p50_ms": 1.2109789822716266,
+      "p95_ms": 2.263264273642562,
+      "mean_candidates": 33.8
+    }
+  },
+  "resume_ready": false,
+  "responsible_use": {
+    "allowed": "aggregate issue discovery and evidence review",
+    "prohibited": "protected-trait inference or individual political persuasion"
+  }
+}
