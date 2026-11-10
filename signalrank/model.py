@@ -258,8 +258,9 @@ class HybridRecommender:
         self._check_fitted()
         features = self._feature_matrix(rows)
         learned = self.ranker.predict_proba(self.scaler.transform(features))[:, 1]
+        blend_weight = getattr(self, "blend_weight", 1.0)
         return {
-            "hybrid": self.blend_weight * learned + (1 - self.blend_weight) * features[:, 2],
+            "hybrid": blend_weight * learned + (1 - blend_weight) * features[:, 2],
             "content": features[:, 0],
             "collaborative": features[:, 1],
             "category_affinity": features[:, 2],
@@ -270,7 +271,8 @@ class HybridRecommender:
         self._check_fitted()
         features = self._feature_matrix(rows)
         learned = self.ranker.predict_proba(self.scaler.transform(features))[:, 1]
-        return self.blend_weight * learned + (1 - self.blend_weight) * features[:, 2]
+        blend_weight = getattr(self, "blend_weight", 1.0)
+        return blend_weight * learned + (1 - blend_weight) * features[:, 2]
 
     def recommend(self, user_id: str, k: int = 10, diversity: float = 0.15) -> list[Recommendation]:
         self._check_fitted()
@@ -319,7 +321,7 @@ class HybridRecommender:
             0: "matches previously engaged content",
             1: "similar users engaged with it",
             2: "matches an established topic interest",
-            3: "has broad recent engagement",
+            3: "has strong historical engagement",
             4: "supported by sufficient behavioral history",
         }
         return tuple(labels[int(idx)] for idx in indices if weighted[idx] > 0) or ("cold-start relevance prior",)
